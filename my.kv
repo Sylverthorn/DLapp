@@ -108,16 +108,50 @@
         font_size: "30"
 
 <InstagramLayout>:
-    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        
+        Label:
+            id: titre
+            text: "Instagram Downloader"
+            size_hint_y: None
+            height: self.texture_size[1]
+            font_size: "30"
 
-    Button:
-        text: 'Home'
-        background_color: (1, 0, 0, 0.8)  # Red
-        size_hint: (None, None)
-        size: (200, 50)  # Button size
-        on_press: app.root.current = 'main'
+        TextInput:
+            id: link
+            hint_text: "URL :"
+            size_hint_y: None
+            height: '40dp'
+            multiline: False
 
-    Label:
-        text: "Instagram Downloader"
-        size_hint: (1, 0.3)
-        font_size: "30"
+        Label:
+            id: MSG
+            text: ""
+            font_size: "15"
+            multiline: True
+        
+        AsyncImage:
+            id: image
+            source: "" 
+            background_color: 0, 0, 0, 0
+
+        Label:
+            id: MSG1
+            text: ""
+            font_size: "15"
+
+        Button:
+            text: "DOWNLOAD"
+            size_hint_y: None
+            height: '60dp'
+            on_press: root.telecharge(self)
+            
+        
+        Button:
+            text: 'Home'
+            background_color: (1, 0, 0, 0.8)  # Red
+            size_hint: (None, None)
+            size: (100, 25)  # Button size
+            on_press: app.root.current = 'main'

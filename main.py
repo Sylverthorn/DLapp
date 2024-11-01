@@ -13,7 +13,7 @@ from kivy.uix.screenmanager import SlideTransition
 
 
 from youtubeDL import YouTubeDL as Youtube
-
+from instaDL import InstaDL as Instagram
 
 
 class MainLayout(Screen):
@@ -56,7 +56,22 @@ class TiktokLayout(Screen):  # Change to inherit from Screen
 class InstagramLayout(Screen):  # Change to inherit from Screen
     def __init__(self, **kwargs):
         super(InstagramLayout, self).__init__(**kwargs)
-        self.add_widget(Label(text="Instagram Downloader", size_hint=(1, 0.3), font_size="30"))
+        layout = BoxLayout(orientation='vertical')
+
+
+    def telecharge(self, instance):
+
+        try:
+            lien = self.ids.link.text
+            insta = Instagram(lien)
+            self.ids.image.source = str(insta.thumbnail)
+            self.ids.MSG.text = f"Downloading: {insta.caption}"
+            
+            insta.download()
+            self.ids.MSG1.text = "Downloading: FINISH"
+        except Exception as e:
+            self.ids.MSG1.text = f"ERROR: {str(e)}"
+    
 
 class MyApp(App):
     def build(self):

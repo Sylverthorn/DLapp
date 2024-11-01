@@ -33,8 +33,8 @@ class YouTubeDL:
 
     
 
-
-yt = YouTubeDL("https://www.youtube.com/watch?v=9bZkp7q19f0")
-print(yt.title) 
-print(yt.thumbnail)
-yt.download()
+if __name__ == "__main__":
+    yt = YouTubeDL("https://www.youtube.com/watch?v=9bZkp7q19f0")
+    print(yt.title) 
+    print(yt.thumbnail)
+    yt.download()
