@@ -11,8 +11,9 @@ from kivy.uix.label import Label
 from kivy.uix.screenmanager import SlideTransition
 
 
-import youtubeDL
+
 from youtubeDL import YouTubeDL as Youtube
+
 
 
 class MainLayout(Screen):
@@ -28,16 +29,17 @@ class YoutubeLayout(Screen):  # Change to inherit from Screen
 
 
     def telecharge(self, instance):
-            try:
-                lien = self.ids.link.text
-                yt = Youtube(lien)
-                self.ids.image.source = str(yt.thumbnail)
-                self.ids.MSG.text = f"Downloading: {yt.title}"
-                
-                yt.download()
-                self.ids.MSG1.text = "Downloading: FINISH"
-            except Exception as e:
-                self.ids.MSG1.text = f"ERROR: {str(e)}"
+
+        try:
+            lien = self.ids.link.text
+            yt = Youtube(lien)
+            self.ids.image.source = str(yt.thumbnail)
+            self.ids.MSG.text = f"Downloading: {yt.title}"
+            
+            yt.download()
+            self.ids.MSG1.text = "Downloading: FINISH"
+        except Exception as e:
+            self.ids.MSG1.text = f"ERROR: {str(e)}"
 
 
 

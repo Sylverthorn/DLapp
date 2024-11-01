@@ -54,7 +54,7 @@
 
         TextInput:
             id: link
-            hint_text: "ENTREZ L'URL :"
+            hint_text: "URL :"
             size_hint_y: None
             height: '40dp'
             multiline: False
@@ -62,7 +62,8 @@
         Label:
             id: MSG
             text: ""
-            font_size: "10"
+            font_size: "15"
+            multiline: True
         
         AsyncImage:
             id: image
@@ -72,12 +73,12 @@
         Label:
             id: MSG1
             text: ""
-            font_size: "10"
+            font_size: "15"
 
         Button:
             text: "DOWNLOAD"
             size_hint_y: None
-            height: '40dp'
+            height: '60dp'
             on_press: root.telecharge(self)
             
         
@@ -85,7 +86,7 @@
             text: 'Home'
             background_color: (1, 0, 0, 0.8)  # Red
             size_hint: (None, None)
-            size: (200, 50)  # Button size
+            size: (100, 25)  # Button size
             on_press: app.root.current = 'main'
 
 
